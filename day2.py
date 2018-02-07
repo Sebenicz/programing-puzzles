@@ -9,4 +9,15 @@ def get_table(filename):
     
     return lines
 
-print(get_table("day2_table.txt"))
+def count_solution(filename):
+
+    table = get_table(filename)
+
+    solution = 0
+
+    for line in table:
+        solution += max(line) - min(line)
+
+    return solution
+
+print(count_solution("day2_table.txt"))
