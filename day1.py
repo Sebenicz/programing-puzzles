@@ -48,14 +48,21 @@ def check_if_equal_with_next_num(num_list, i):
     return result
 
 
-def count_solution():
+def count_solution(part_number):
     num_list = get_list_from_num()
     solution = 0
     i = 0 
     
     while i < len(num_list):
 
-        if check_if_equal_with_next_num(num_list, i):
+        if part_number == 1:
+            condition = check_if_equal_with_next_num(num_list, i)
+
+        elif part_number == 2:
+            condition = check_if_equal_with_middle_num(num_list, i)
+
+
+        if condition:
             solution += num_list[i]
         
         i += 1
@@ -63,12 +70,27 @@ def count_solution():
     return solution
 
 
+def check_if_equal_with_middle_num(num_list, i):
+    
+    half_len = len(num_list) / 2
+    half_len = int(half_len)
+
+    if i < half_len:
+        middle_i = i + half_len
+
+    elif i >= half_len:
+        middle_i = half_len - i
+
+    result = num_list[i] == num_list[middle_i]
+
+    return result
+
 def main():
-    print(count_solution())
+    print("part 1: " + str(count_solution(1)))
+    print("part 2: " + str(count_solution(2)))
 
 
 if __name__ == '__main__':
     main()
-        
 
         
