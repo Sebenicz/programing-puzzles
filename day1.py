@@ -33,5 +33,36 @@ def get_list_from_num():
 
     return numbers 
 
+def check_if_equal_with_next_num(num_list, i):
+    
+    if ( i + 1 ) != len(num_list):
+        current_to_next = (i + 1) != len(num_list) and num_list[i] == num_list[i+1]
+    else: 
+        current_to_next = False
+    
+    last_to_first = (i + 1) == len(num_list) and num_list[i] == num_list[0]
+
+    result = current_to_next or last_to_first 
+    
+    return result
+
+
+def count_solution():
+    num_list = get_list_from_num()
+    solution = 0
+    i = 0 
+    
+    while i < len(num_list):
+
+        if check_if_equal_with_next_num(num_list, i):
+            solution += num_list[i]
+        
+        i += 1
+
+    return solution
+
+
+
+        
 
         
