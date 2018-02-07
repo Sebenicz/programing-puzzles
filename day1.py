@@ -33,6 +33,7 @@ def get_list_from_num():
 
     return numbers 
 
+
 def check_if_equal_with_next_num(num_list, i):
     
     if ( i + 1 ) != len(num_list):
@@ -62,7 +63,12 @@ def count_solution():
     return solution
 
 
+def main():
+    print(count_solution())
 
+
+if __name__ == '__main__':
+    main()
         
 
         
