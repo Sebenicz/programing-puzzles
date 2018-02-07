@@ -9,15 +9,46 @@ def get_table(filename):
     
     return lines
 
-def count_solution(filename):
+
+def count_solution_1(filename):
 
     table = get_table(filename)
 
-    solution = 0
+    solution_1 = 0
 
     for line in table:
-        solution += max(line) - min(line)
+        solution_1 += max(line) - min(line)
 
-    return solution
+    return solution_1
 
-print(count_solution("day2_table.txt"))
+
+def count_solution_2(filename):
+
+    table = get_table(filename)
+    
+    solution_2 = 0
+    i = 0 
+    while i < len(table):
+        j=0
+        
+        while j < len(table[i]):
+            k = 0
+
+            while k < len(table[i]):
+                
+                if table[i][j] % table[i][k] == 0 and j != k:
+                    solution_2 += table[i][j] / table[i][k]
+
+                k += 1
+
+            j += 1
+
+        i += 1
+
+    solution_2 = int(solution_2)
+
+    return solution_2
+
+    
+print(count_solution_1("day2_table.txt"))
+print(count_solution_2("day2_table.txt"))
