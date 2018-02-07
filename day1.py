@@ -71,7 +71,7 @@ def count_solution(part_number):
 
 
 def check_if_equal_with_middle_num(num_list, i):
-    
+
     half_len = len(num_list) / 2
     half_len = int(half_len)
 
@@ -79,7 +79,7 @@ def check_if_equal_with_middle_num(num_list, i):
         middle_i = i + half_len
 
     elif i >= half_len:
-        middle_i = half_len - i
+        middle_i = i - half_len
 
     result = num_list[i] == num_list[middle_i]
 
