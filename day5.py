@@ -16,12 +16,22 @@ def jumping():
     jumps = 0
     while True:
         try:
-            steps[i] += 1
-            i = i + steps[i] 
-            i -= 1
+
+            if steps[i] >= 3: # if for part 2
+                steps[i] -= 1 
+                i = i + steps[i] 
+                i += 1
+
+            else:             
+                steps[i] += 1
+                i = i + steps[i] 
+                i -= 1
+
             jumps += 1
+
             if i < 0:
                 raise IndexError
+
         except IndexError:
             print("out of loop in " + str(jumps) + " jumps.")
             break
